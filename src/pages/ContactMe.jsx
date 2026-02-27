@@ -49,7 +49,7 @@ export default function ContactMe() {
               <span className="mt-2 block text-[clamp(4.2rem,9vw,6rem)]">Saya</span>
             </h1>
 
-            <div className="mt-22 inline-flex rounded-[1.75rem] bg-pink-200/95 px-5 py-4 shadow-[0_18px_35px_rgba(0,0,0,0.35)]">
+              <div className="mt-10 inline-flex rounded-[1.75rem] bg-pink-200/95 px-5 py-4 shadow-[0_18px_35px_rgba(0,0,0,0.35)] sm:mt-12">
               <div className="flex items-center gap-4">
                 <a
                   href="https://www.linkedin.com"

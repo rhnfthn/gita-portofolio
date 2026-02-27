@@ -13,8 +13,8 @@ export default function About() {
         <div className="flex w-full max-w-6xl flex-col items-center gap-8 md:flex-row md:items-center">
           {/* Left image with pink card behind */}
           <div className="relative mx-auto md:mx-0 md:-translate-x-10">
-            <div className="pointer-events-none absolute -left-6 -top-6 h-[320px] w-[260px] bg-[#7f344f] md:h-[360px] md:w-[280px]" />
-            <div className="group relative h-[320px] w-[260px] overflow-hidden rounded-sm bg-white shadow-[0_20px_40px_rgba(0,0,0,0.35)] transition-transform duration-300 hover:scale-[1.04] hover:shadow-xl md:h-[360px] md:w-[280px]">
+            <div className="pointer-events-none absolute -left-3 -top-3 h-[280px] w-[220px] bg-[#7f344f] sm:-left-6 sm:-top-6 sm:h-[320px] sm:w-[260px] md:h-[360px] md:w-[280px]" />
+            <div className="group relative h-[280px] w-[220px] overflow-hidden rounded-sm bg-white shadow-[0_20px_40px_rgba(0,0,0,0.35)] transition-transform duration-300 hover:scale-[1.04] hover:shadow-xl sm:h-[320px] sm:w-[260px] md:h-[360px] md:w-[280px]">
               <img
                 src={meImage}
                 alt="Gita Roito Dian Tumanggor"
@@ -127,9 +127,9 @@ export default function About() {
             {/* Right image with card behind (shadow bottom-right, proportional) */}
             <div className="relative flex-1 md:pl-6">
               {/* Back card as smaller shadow */}
-              <div className="pointer-events-none absolute -bottom-3 -right-4 h-[240px] w-[95%] bg-[#7f344f] md:-bottom-1 md:-right-8 md:h-[310px] md:w-[95%]" />
+              <div className="pointer-events-none absolute -bottom-3 -right-2 h-[220px] w-[95%] bg-[#7f344f] sm:-right-4 sm:h-[240px] md:-bottom-1 md:-right-8 md:h-[310px] md:w-[95%]" />
               {/* Front photo */}
-              <div className="group relative z-10 h-[260px] w-full overflow-hidden bg-white shadow-[0_20px_40px_rgba(0,0,0,0.35)] transition-transform duration-300 hover:scale-[1.04] hover:shadow-xl md:h-[320px]">
+              <div className="group relative z-10 h-[240px] w-full overflow-hidden bg-white shadow-[0_20px_40px_rgba(0,0,0,0.35)] transition-transform duration-300 hover:scale-[1.04] hover:shadow-xl sm:h-[260px] md:h-[320px]">
                 <img
                   src={eduImage}
                   alt="Ilustrasi pendidikan"

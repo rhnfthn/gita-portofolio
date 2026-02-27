@@ -118,7 +118,7 @@ export default function PageShell({ title, children, headerContent, headerRightC
   )
 
   const rootClassName =
-    'min-h-dvh bg-cover bg-center bg-no-repeat ' +
+    'min-h-dvh bg-cover bg-center bg-no-repeat overflow-x-hidden ' +
     (noScroll ? 'overflow-y-hidden' : 'overflow-y-auto')
 
   return (
@@ -126,7 +126,7 @@ export default function PageShell({ title, children, headerContent, headerRightC
       className={rootClassName}
       style={{ backgroundImage: `url(${bgPink})` }}
     >
-      <header className="relative h-16 w-full sm:h-20">
+      <header className="relative w-full min-h-16 sm:h-20">
         <div
           className="absolute inset-0"
           style={{
@@ -138,12 +138,12 @@ export default function PageShell({ title, children, headerContent, headerRightC
           aria-hidden="true"
         />
 
-        <div className="relative flex h-full w-full items-center px-4 sm:px-6">
-          <div className="flex w-full items-center gap-4">
+        <div className="relative flex w-full items-center px-4 py-3 sm:h-full sm:py-0 sm:px-6">
+          <div className="flex w-full flex-col gap-3 sm:flex-row sm:items-center sm:gap-4">
             <div className="min-w-0 flex-1">{headerContent ?? defaultHeaderContent}</div>
 
-            <nav className="flex items-center justify-end" aria-label="Primary">
-              <div className="flex items-center gap-1 rounded-full bg-searchbar p-1 ring-1 ring-black/15">
+            <nav className="flex w-full items-center justify-center sm:w-auto sm:justify-end" aria-label="Primary">
+              <div className="mx-auto flex max-w-full items-center gap-1 overflow-x-auto rounded-full bg-searchbar p-1 ring-1 ring-black/15 sm:mx-0">
                 {links.map((link) => {
                   const isActive = location.pathname === link.to
                   return (
@@ -153,7 +153,7 @@ export default function PageShell({ title, children, headerContent, headerRightC
                       aria-current={isActive ? 'page' : undefined}
                       style={{ fontFamily: '"Poppins", sans-serif' }}
                       className={
-                        'whitespace-nowrap rounded-full px-4 py-2 text-xs font-bold tracking-wide text-zinc-900/90 transition-colors ' +
+                        'whitespace-nowrap rounded-full px-3 py-2 text-xs font-bold tracking-wide text-zinc-900/90 transition-colors sm:px-4 ' +
                         (isActive ? 'bg-black/10' : 'hover:bg-black/5')
                       }
                     >
@@ -169,7 +169,7 @@ export default function PageShell({ title, children, headerContent, headerRightC
         </div>
       </header>
 
-      <div className="mx-auto max-w-5xl px-6 py-12 animate-page">
+      <div className="mx-auto max-w-5xl px-4 py-8 animate-page sm:px-6 sm:py-12">
         {title ? (
           <h1 className="text-4xl font-semibold tracking-tight text-zinc-900 animate-fade-in-up">
             {title}
