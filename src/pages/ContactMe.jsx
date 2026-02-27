@@ -37,7 +37,7 @@ export default function ContactMe() {
         <div className="flex w-full max-w-4xl flex-col items-center justify-center gap-10 px-4 text-center md:flex-row md:items-end md:text-left">
           <div className="md:flex-1 flex flex-col items-center md:items-start">
             <h1
-              className="select-none text-zinc-900"
+              className="select-none text-zinc-900 animate-fade-in-up"
               style={{
                 fontFamily: '"Great Vibes", cursive',
                 lineHeight: 1.15,
@@ -55,7 +55,7 @@ export default function ContactMe() {
                   href="https://www.linkedin.com"
                   target="_blank"
                   rel="noreferrer"
-                  className="flex h-14 w-14 items-center justify-center rounded-xl bg-white shadow-[0_10px_22px_rgba(0,0,0,0.35)] sm:h-16 sm:w-16"
+                  className="flex h-14 w-14 items-center justify-center rounded-xl bg-white shadow-[0_10px_22px_rgba(0,0,0,0.35)] transition-transform duration-300 hover:scale-[1.06] hover:shadow-xl sm:h-16 sm:w-16"
                 >
                   <img
                     src={linkedinLogo}
@@ -67,7 +67,7 @@ export default function ContactMe() {
                   href="https://www.instagram.com"
                   target="_blank"
                   rel="noreferrer"
-                  className="flex h-14 w-14 items-center justify-center rounded-xl bg-white shadow-[0_10px_22px_rgba(0,0,0,0.35)] sm:h-16 sm:w-16"
+                  className="flex h-14 w-14 items-center justify-center rounded-xl bg-white shadow-[0_10px_22px_rgba(0,0,0,0.35)] transition-transform duration-300 hover:scale-[1.06] hover:shadow-xl sm:h-16 sm:w-16"
                 >
                   <img
                     src={igLogo}
@@ -79,7 +79,7 @@ export default function ContactMe() {
                   href="https://wa.me/6281328511954"
                   target="_blank"
                   rel="noreferrer"
-                  className="flex h-14 w-14 items-center justify-center rounded-xl bg-white shadow-[0_10px_22px_rgba(0,0,0,0.35)] sm:h-16 sm:w-16"
+                  className="flex h-14 w-14 items-center justify-center rounded-xl bg-white shadow-[0_10px_22px_rgba(0,0,0,0.35)] transition-transform duration-300 hover:scale-[1.06] hover:shadow-xl sm:h-16 sm:w-16"
                 >
                   <img
                     src={waLogo}
@@ -89,7 +89,7 @@ export default function ContactMe() {
                 </a>
                 <a
                   href="mailto:"
-                  className="flex h-14 w-14 items-center justify-center rounded-xl bg-white shadow-[0_10px_22px_rgba(0,0,0,0.35)] sm:h-16 sm:w-16"
+                  className="flex h-14 w-14 items-center justify-center rounded-xl bg-white shadow-[0_10px_22px_rgba(0,0,0,0.35)] transition-transform duration-300 hover:scale-[1.06] hover:shadow-xl sm:h-16 sm:w-16"
                 >
                   <img
                     src={gmailLogo}
@@ -102,7 +102,7 @@ export default function ContactMe() {
           </div>
 
           <div
-            className="w-full max-w-md rounded-[2rem] bg-pink-200/95 px-5 py-6 text-left text-zinc-900 shadow-[0_18px_35px_rgba(0,0,0,0.35)] sm:px-6 sm:py-7 md:flex-1 flex flex-col justify-between"
+            className="w-full max-w-md rounded-[2rem] bg-pink-200/95 px-5 py-6 text-left text-zinc-900 shadow-[0_18px_35px_rgba(0,0,0,0.35)] transition-transform duration-300 hover:scale-[1.04] hover:shadow-xl sm:px-6 sm:py-7 md:flex-1 flex flex-col justify-between"
             style={{ fontFamily: '"Poppins", sans-serif' }}
           >
           <form onSubmit={handleSubmit} className="space-y-3 text-sm sm:text-base">

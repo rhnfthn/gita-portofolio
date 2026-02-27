@@ -54,7 +54,7 @@ export default function Experience() {
       <section className="mx-auto flex min-h-[calc(100dvh-11rem)] w-full max-w-5xl flex-col items-center py-8 sm:py-10">
         {/* Heading */}
         <h1
-          className="text-center text-zinc-900"
+          className="text-center text-zinc-900 animate-fade-in-up"
           style={{
             fontFamily: '"Great Vibes", cursive',
             lineHeight: 1.15,
@@ -91,7 +91,7 @@ export default function Experience() {
                       }`}
                     >
                       {/* Image */}
-                      <div className={`order-1 overflow-hidden rounded-3xl bg-white shadow-[0_18px_35px_rgba(0,0,0,0.35)] ${isLeft ? '' : 'sm:order-2'}`}>
+                      <div className={`order-1 overflow-hidden rounded-3xl bg-white shadow-[0_18px_35px_rgba(0,0,0,0.35)] transition-transform duration-300 hover:scale-[1.04] hover:shadow-xl ${isLeft ? '' : 'sm:order-2'}`}>
                         <img
                           src={step.image}
                           alt={step.title}
@@ -101,7 +101,7 @@ export default function Experience() {
 
                       {/* Text card */}
                       <div
-                        className={`order-2 mt-4 rounded-3xl bg-pink-200/95 px-5 py-5 text-sm text-zinc-900 shadow-[0_18px_35px_rgba(0,0,0,0.35)] sm:mt-0 sm:px-6 sm:py-6 ${
+                        className={`order-2 mt-4 rounded-3xl bg-pink-200/95 px-5 py-5 text-sm text-zinc-900 shadow-[0_18px_35px_rgba(0,0,0,0.35)] transition-transform duration-300 hover:scale-[1.04] hover:shadow-xl sm:mt-0 sm:px-6 sm:py-6 ${
                           isLeft ? '' : 'sm:order-1'
                         }`}
                         style={{ fontFamily: '"Poppins", sans-serif' }}
@@ -147,7 +147,7 @@ export default function Experience() {
             {certificates.map((item) => (
               <div
                 key={item}
-                className="flex h-32 flex-col items-center justify-center rounded-3xl bg-pink-200/95 px-4 text-center text-sm font-semibold text-zinc-900 shadow-[0_18px_35px_rgba(0,0,0,0.35)] sm:h-36"
+                className="flex h-32 flex-col items-center justify-center rounded-3xl bg-pink-200/95 px-4 text-center text-sm font-semibold text-zinc-900 shadow-[0_18px_35px_rgba(0,0,0,0.35)] transition-transform duration-300 hover:scale-[1.04] hover:shadow-xl sm:h-36"
                 style={{ fontFamily: '"Poppins", sans-serif' }}
               >
                 <span className="text-xs font-bold uppercase tracking-[0.18em] text-zinc-700">

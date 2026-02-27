@@ -5,7 +5,7 @@ export default function Home() {
     <PageShell title={null} noScroll>
       <div className="flex min-h-[calc(100dvh-10rem)] flex-col items-center justify-center text-center sm:min-h-[calc(100dvh-11rem)]">
         <h1
-          className="select-none text-zinc-900"
+          className="select-none text-zinc-900 animate-fade-in-up"
           style={{
             fontFamily: '"Great Vibes", cursive',
             lineHeight: 1.15,
@@ -13,8 +13,8 @@ export default function Home() {
               "6px 6px 0 rgba(0,0,0,0.35), 12px 12px 0 rgba(0,0,0,0.18)",
           }}
         >
-          <span className="block text-[clamp(5rem,12vw,8rem)]">Portofolio</span>
-          <span className="mt-4 block text-[clamp(6rem,14vw,9rem)]">Ku</span>
+          <span className="block text-[clamp(5rem,12vw,8rem)] animate-float-slow">Portofolio</span>
+          <span className="mt-4 block text-[clamp(6rem,14vw,9rem)] animate-float-slow-delay">Ku</span>
         </h1>
 
         <div className="mt-14 w-full max-w-3xl">

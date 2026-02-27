@@ -169,9 +169,9 @@ export default function PageShell({ title, children, headerContent, headerRightC
         </div>
       </header>
 
-      <div className="mx-auto max-w-5xl px-6 py-12">
+      <div className="mx-auto max-w-5xl px-6 py-12 animate-page">
         {title ? (
-          <h1 className="text-4xl font-semibold tracking-tight text-zinc-900">
+          <h1 className="text-4xl font-semibold tracking-tight text-zinc-900 animate-fade-in-up">
             {title}
           </h1>
         ) : null}

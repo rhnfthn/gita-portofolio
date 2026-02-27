@@ -14,11 +14,11 @@ export default function About() {
           {/* Left image with pink card behind */}
           <div className="relative mx-auto md:mx-0 md:-translate-x-10">
             <div className="pointer-events-none absolute -left-6 -top-6 h-[320px] w-[260px] bg-[#7f344f] md:h-[360px] md:w-[280px]" />
-            <div className="relative h-[320px] w-[260px] overflow-hidden rounded-sm bg-white shadow-[0_20px_40px_rgba(0,0,0,0.35)] md:h-[360px] md:w-[280px]">
+            <div className="group relative h-[320px] w-[260px] overflow-hidden rounded-sm bg-white shadow-[0_20px_40px_rgba(0,0,0,0.35)] transition-transform duration-300 hover:scale-[1.04] hover:shadow-xl md:h-[360px] md:w-[280px]">
               <img
                 src={meImage}
                 alt="Gita Roito Dian Tumanggor"
-                className="h-full w-full object-cover"
+                className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.06]"
               />
             </div>
           </div>
@@ -26,7 +26,7 @@ export default function About() {
           {/* Right panel */}
           <div className="relative flex-1">
             {/* Inner content (no frame) */}
-            <div className="relative h-full rounded-[2.5rem] bg-pink-200/90 px-8 py-10 shadow-[0_18px_35px_rgba(0,0,0,0.35)] md:px-10 md:py-12">
+            <div className="relative h-full rounded-[2.5rem] bg-pink-200/90 px-8 py-10 shadow-[0_18px_35px_rgba(0,0,0,0.35)] transition-transform duration-300 hover:scale-[1.04] hover:shadow-xl md:px-10 md:py-12">
               <h1
                 className="text-3xl font-extrabold uppercase tracking-[0.18em] text-zinc-900 sm:text-4xl md:text-5xl"
                 style={{ fontFamily: "Poppins, sans-serif" }}
@@ -96,7 +96,7 @@ export default function About() {
             style={{ fontFamily: "Poppins, sans-serif" }}
           >
             {/* Left education card */}
-            <div className="flex-1 rounded-3xl bg-pink-200/95 px-8 py-8 shadow-[0_18px_35px_rgba(0,0,0,0.35)] md:px-10 md:py-10">
+            <div className="flex-1 rounded-3xl bg-pink-200/95 px-8 py-8 shadow-[0_18px_35px_rgba(0,0,0,0.35)] transition-transform duration-300 hover:scale-[1.04] hover:shadow-xl md:px-10 md:py-10">
               <h3
                 className="text-3xl font-extrabold uppercase tracking-[0.18em] text-zinc-900 sm:text-4xl"
                 style={{ fontFamily: "Poppins, sans-serif" }}
@@ -129,11 +129,11 @@ export default function About() {
               {/* Back card as smaller shadow */}
               <div className="pointer-events-none absolute -bottom-3 -right-4 h-[240px] w-[95%] bg-[#7f344f] md:-bottom-1 md:-right-8 md:h-[310px] md:w-[95%]" />
               {/* Front photo */}
-              <div className="relative z-10 h-[260px] w-full overflow-hidden bg-white shadow-[0_20px_40px_rgba(0,0,0,0.35)] md:h-[320px]">
+              <div className="group relative z-10 h-[260px] w-full overflow-hidden bg-white shadow-[0_20px_40px_rgba(0,0,0,0.35)] transition-transform duration-300 hover:scale-[1.04] hover:shadow-xl md:h-[320px]">
                 <img
                   src={eduImage}
                   alt="Ilustrasi pendidikan"
-                  className="h-full w-full object-cover"
+                  className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.06]"
                 />
               </div>
             </div>
@@ -160,7 +160,7 @@ export default function About() {
                 Skill
               </h2>
 
-              <div className="mt-6 rounded-[2rem] bg-pink-200/95 px-6 py-4 text-sm font-medium text-zinc-900 shadow-[0_18px_35px_rgba(0,0,0,0.35)] sm:text-base">
+              <div className="mt-6 rounded-[2rem] bg-pink-200/95 px-6 py-4 text-sm font-medium text-zinc-900 shadow-[0_18px_35px_rgba(0,0,0,0.35)] transition-transform duration-300 hover:scale-[1.04] hover:shadow-xl sm:text-base">
                 <p
                   className="font-extrabold uppercase tracking-[0.18em] text-zinc-800"
                   style={{ fontFamily: "Poppins, sans-serif" }}
@@ -189,7 +189,7 @@ export default function About() {
 
             {/* Right column: big card */}
             <div className="md:flex-[1.25]">
-              <div className="rounded-[2.5rem] bg-pink-300/95 px-6 py-6 text-sm font-medium text-zinc-900 shadow-[0_22px_45px_rgba(0,0,0,0.4)] sm:px-8 sm:py-8 md:min-h-[420px]">
+              <div className="rounded-[2.5rem] bg-pink-300/95 px-6 py-6 text-sm font-medium text-zinc-900 shadow-[0_22px_45px_rgba(0,0,0,0.4)] transition-transform duration-300 hover:scale-[1.04] hover:shadow-xl sm:px-8 sm:py-8 md:min-h-[420px]">
                 <p
                   className="font-extrabold uppercase tracking-[0.18em] text-zinc-800"
                   style={{ fontFamily: "Poppins, sans-serif" }}
@@ -208,21 +208,21 @@ export default function About() {
 
                 {/* Logo bar */}
                 <div className="mt-8 flex justify-center gap-6">
-                  <div className="h-16 w-16 rounded-sm bg-white shadow-[0_8px_18px_rgba(0,0,0,0.35)] sm:h-20 sm:w-20">
+                  <div className="h-16 w-16 rounded-sm bg-white shadow-[0_8px_18px_rgba(0,0,0,0.35)] transition-transform duration-300 hover:scale-[1.06] hover:shadow-xl sm:h-20 sm:w-20">
                     <img
                       src={workspaceLogo}
                       alt="Logo Google Workspace"
                       className="h-full w-full object-contain p-2"
                     />
                   </div>
-                  <div className="h-16 w-16 rounded-sm bg-white shadow-[0_8px_18px_rgba(0,0,0,0.35)] sm:h-20 sm:w-20">
+                  <div className="h-16 w-16 rounded-sm bg-white shadow-[0_8px_18px_rgba(0,0,0,0.35)] transition-transform duration-300 hover:scale-[1.06] hover:shadow-xl sm:h-20 sm:w-20">
                     <img
                       src={officeLogo}
                       alt="Logo Microsoft Office"
                       className="h-full w-full object-contain p-2"
                     />
                   </div>
-                  <div className="h-16 w-16 rounded-sm bg-white shadow-[0_8px_18px_rgba(0,0,0,0.35)] sm:h-20 sm:w-20">
+                  <div className="h-16 w-16 rounded-sm bg-white shadow-[0_8px_18px_rgba(0,0,0,0.35)] transition-transform duration-300 hover:scale-[1.06] hover:shadow-xl sm:h-20 sm:w-20">
                     <img
                       src={unpriLogo}
                       alt="Logo Universitas Prima Indonesia"

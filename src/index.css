@@ -1,5 +1,53 @@
 @import "tailwindcss";
 
+@keyframes fade-in-up {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.8s cubic-bezier(0.4, 0.2, 0.2, 1) both;
+}
+
+@keyframes fade-page {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.animate-page {
+  animation: fade-page 0.7s cubic-bezier(0.4, 0.2, 0.2, 1) both;
+}
+
+@keyframes float-slow {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-float-slow {
+  animation: float-slow 3.2s ease-in-out infinite;
+}
+
+.animate-float-slow-delay {
+  animation: float-slow 3.2s ease-in-out infinite;
+  animation-delay: 0.35s;
+}
+
 @theme {
   --color-searchbar: #fbcfe2;
 }
