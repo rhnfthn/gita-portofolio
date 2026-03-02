@@ -1,15 +1,31 @@
 import headerUngu from '../assets/header-ungu.svg'
 import bgPink from '../assets/bg-pink.svg'
+import { useEffect, useRef } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 
-export default function PageShell({ title, children, headerContent, headerRightContent, noScroll = false }) {
+export default function PageShell({
+  title,
+  children,
+  headerContent,
+  headerRightContent,
+  searchText,
+  noScroll = false,
+  contentMaxWidthClass = 'max-w-5xl',
+}) {
   const location = useLocation()
   const navigate = useNavigate()
+  const shellRef = useRef(null)
+
+  const effectiveSearchText = searchText ?? 'Gita Roito Dian Tumanggor'
+
+  useEffect(() => {
+    if (shellRef.current) shellRef.current.scrollTop = 0
+  }, [location.pathname])
 
   const links = [
     { label: 'Home', to: '/' },
     { label: 'About', to: '/about' },
-    { label: 'Experience', to: '/experience' },
+    { label: 'Achievment', to: '/achievment' },
     { label: 'Contact Me', to: '/contact' },
   ]
 
@@ -107,9 +123,11 @@ export default function PageShell({ title, children, headerContent, headerRightC
             <path d="M21 21l-4.3-4.3" />
           </svg>
           <input
-            defaultValue=""
+            value={effectiveSearchText}
+            readOnly
             aria-label="Search"
-            className="w-full bg-transparent text-sm font-semibold tracking-wide text-zinc-900/90 outline-none placeholder:text-zinc-900/60"
+            title={effectiveSearchText}
+            className="w-full bg-transparent text-sm font-semibold tracking-wide text-zinc-900/90 outline-none"
             style={{ fontFamily: '"Poppins", sans-serif' }}
           />
         </div>
@@ -118,15 +136,16 @@ export default function PageShell({ title, children, headerContent, headerRightC
   )
 
   const rootClassName =
-    'min-h-dvh bg-cover bg-center bg-no-repeat overflow-x-hidden ' +
+    'h-dvh min-h-dvh bg-cover bg-center bg-no-repeat overflow-x-hidden ' +
     (noScroll ? 'overflow-y-hidden' : 'overflow-y-auto')
 
   return (
     <div
+      ref={shellRef}
       className={rootClassName}
       style={{ backgroundImage: `url(${bgPink})` }}
     >
-      <header className="relative w-full min-h-16 sm:h-20">
+      <header className="sticky top-0 z-40 relative w-full min-h-16 sm:h-20">
         <div
           className="absolute inset-0"
           style={{
@@ -169,7 +188,7 @@ export default function PageShell({ title, children, headerContent, headerRightC
         </div>
       </header>
 
-      <div className="mx-auto max-w-5xl px-4 py-8 animate-page sm:px-6 sm:py-12">
+      <div className={`mx-auto ${contentMaxWidthClass} px-4 py-8 animate-page sm:px-6 sm:py-12`}>
         {title ? (
           <h1 className="text-4xl font-semibold tracking-tight text-zinc-900 animate-fade-in-up">
             {title}

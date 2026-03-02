@@ -1,9 +1,9 @@
 import { useState } from 'react'
 import PageShell from '../components/PageShell.jsx'
-import linkedinLogo from '../assets/logo-linkedin.png'
-import igLogo from '../assets/logo-ig.jfif'
-import waLogo from '../assets/logo-wa.jfif'
-import gmailLogo from '../assets/logo-gmail.png'
+import linkedinLogo from '../assets/logo/logo-linkedin.png'
+import igLogo from '../assets/logo/logo-ig.jfif'
+import waLogo from '../assets/logo/logo-wa.jfif'
+import gmailLogo from '../assets/logo/logo-gmail.png'
 
 export default function ContactMe() {
   const [nama, setNama] = useState('')
@@ -32,7 +32,7 @@ export default function ContactMe() {
   }
 
   return (
-    <PageShell title={null} noScroll>
+    <PageShell title={null} noScroll searchText="Hubungi Saya - Gita Roito Dian Tumanggor">
       <div className="flex min-h-[calc(100dvh-11rem)] items-center justify-center">
         <div className="flex w-full max-w-4xl flex-col items-center justify-center gap-10 px-4 text-center md:flex-row md:items-end md:text-left">
           <div className="md:flex-1 flex flex-col items-center md:items-start">
