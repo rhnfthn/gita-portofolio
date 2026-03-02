@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
-import { createPortal } from 'react-dom'
 import PageShell from '../components/PageShell.jsx'
+import ImageModal from '../components/ImageModal.jsx'
 import karya1 from '../assets/achievment/karya1.png'
 import achievment1 from '../assets/achievment/achievment1.png'
 import achievment2 from '../assets/achievment/achievment2.png'
@@ -125,15 +125,6 @@ export default function Achievment() {
   ]
 
   useEffect(() => {
-    if (!activePhoto) return
-    const previousOverflow = document.body.style.overflow
-    document.body.style.overflow = 'hidden'
-    return () => {
-      document.body.style.overflow = previousOverflow
-    }
-  }, [activePhoto])
-
-  useEffect(() => {
     if (typeof window === 'undefined') return
 
     const elements = sectionConfigs
@@ -173,27 +164,40 @@ export default function Achievment() {
 
   return (
     <PageShell title={null} searchText={searchText}>
-      <section className="mx-auto flex min-h-[calc(100dvh-11rem)] w-full max-w-5xl flex-col items-center py-8 sm:py-10">
+      <section className="mx-auto flex min-h-[calc(100dvh-11rem)] w-full max-w-5xl flex-col items-center px-4 py-10 sm:px-6 sm:py-12">
         {/* Section: Karya Pribadi */}
-        <section id="karya-pribadi" className="mt-6 w-full max-w-5xl">
-          <h2
-            className="text-center text-2xl font-extrabold uppercase tracking-[0.18em] text-zinc-900 sm:text-3xl"
-            style={{ fontFamily: '"Poppins", sans-serif' }}
-          >
-            Karya Pribadi
-          </h2>
+        <section id="karya-pribadi" className="w-full max-w-5xl scroll-mt-28">
+          <div className="flex justify-center">
+            <div className="inline-flex rounded-[2rem] bg-[#7a324c] px-8 py-3 shadow-[0_18px_35px_rgba(0,0,0,0.35)]">
+              <h2
+                className="select-none text-center text-[clamp(3rem,7vw,4.5rem)] text-pink-50 animate-fade-in-up"
+                style={{
+                  fontFamily: '"Great Vibes", cursive',
+                  lineHeight: 1.15,
+                  textShadow: '6px 6px 0 rgba(0,0,0,0.35), 12px 12px 0 rgba(0,0,0,0.18)',
+                }}
+              >
+                Karya Pribadi
+              </h2>
+            </div>
+          </div>
 
           <div className="mt-12 flex flex-col gap-8 md:flex-row md:items-center md:gap-10">
             {/* Left: image card */}
             <div className="w-full md:w-fit md:max-w-[520px] md:flex-none">
-              <div className="overflow-hidden rounded-[2.5rem] bg-[#7f344f] shadow-[0_18px_35px_rgba(0,0,0,0.35)] transition-transform duration-300 hover:scale-[1.02] hover:shadow-xl">
+              <button
+                type="button"
+                onClick={() => setActivePhoto({ src: karya1, alt: 'Karya Pribadi' })}
+                className="block w-full overflow-hidden rounded-[2.5rem] bg-[#7f344f] shadow-[0_18px_35px_rgba(0,0,0,0.35)] transition-transform duration-300 hover:scale-[1.02] hover:shadow-xl"
+                aria-label="Buka foto Karya Pribadi"
+              >
                 <img
                   src={karya1}
                   alt="Karya Pribadi"
                   className="h-[320px] w-full object-contain p-6 sm:h-[390px] md:h-[470px]"
                   draggable={false}
                 />
-              </div>
+              </button>
             </div>
 
             {/* Right: text card */}
@@ -208,7 +212,7 @@ export default function Achievment() {
                 “Mengapa Kita Ingin Hidup Tertib, tetapi Enggan Diatur?”
               </p>
 
-              <p className="mt-4 text-[0.9rem] leading-relaxed text-zinc-900 sm:text-base">
+              <p className="mt-4 text-justify text-[0.9rem] leading-relaxed text-zinc-900 sm:text-base">
                 Proyek desain pribadi yang mengangkat refleksi sosial mengenai kontradiksi sikap masyarakat terhadap aturan dan
                 ketertiban. Poster ini dibuat untuk melatih kemampuan komunikasi visual dalam menyampaikan pesan kritis secara
                 persuasif dan mudah dipahami.
@@ -218,19 +222,27 @@ export default function Achievment() {
         </section>
 
         {/* Section: Pencapaian */}
-        <section id="pencapaian" className="mt-16 w-full max-w-5xl">
-          <h2
-            className="text-center text-2xl font-extrabold uppercase tracking-[0.18em] text-zinc-900 sm:text-3xl"
-            style={{ fontFamily: '"Poppins", sans-serif' }}
-          >
-            Pencapaian
-          </h2>
+        <section id="pencapaian" className="mt-24 w-full max-w-5xl scroll-mt-28 sm:mt-28">
+          <div className="flex justify-center">
+            <div className="inline-flex rounded-[2rem] bg-[#7a324c] px-8 py-3 shadow-[0_18px_35px_rgba(0,0,0,0.35)]">
+              <h2
+                className="select-none text-center text-[clamp(3rem,7vw,4.5rem)] text-pink-50 animate-fade-in-up"
+                style={{
+                  fontFamily: '"Great Vibes", cursive',
+                  lineHeight: 1.15,
+                  textShadow: '6px 6px 0 rgba(0,0,0,0.35), 12px 12px 0 rgba(0,0,0,0.18)',
+                }}
+              >
+                Pencapaian
+              </h2>
+            </div>
+          </div>
 
           <div className="mt-10 flex flex-col gap-8 md:flex-row md:items-center md:gap-10">
             {/* Left: framed 4 photos */}
             <div className="w-full md:w-[520px] md:flex-none">
               <div className="rounded-[2.5rem] bg-[#7f344f] p-6 shadow-[0_18px_35px_rgba(0,0,0,0.35)]">
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                   {pencapaianPhotos.map((photo) => (
                     <button
                       key={photo.src}
@@ -264,7 +276,7 @@ export default function Achievment() {
                 (Tahap Karantina &amp; Grand Final)
               </p>
 
-              <ul className="mt-5 list-disc space-y-2 pl-5 text-[0.9rem] leading-relaxed text-zinc-900 sm:text-base">
+              <ul className="mt-5 list-disc space-y-2 pl-5 text-justify text-[0.9rem] leading-relaxed text-zinc-900 sm:text-base">
                 <li>Lolos seleksi administrasi dan wawancara tingkat provinsi</li>
                 <li>Mengikuti tahap karantina dan pembinaan kepemimpinan</li>
                 <li>Mengembangkan dan mempresentasikan gagasan kepeloporan untuk pemberdayaan pemuda</li>
@@ -274,65 +286,34 @@ export default function Achievment() {
           </div>
         </section>
 
-        {/* Photo modal */}
-        {activePhoto && typeof document !== 'undefined'
-          ? createPortal(
-              <div
-                className="fixed inset-0 z-50 flex h-[100dvh] w-[100vw] items-center justify-center bg-black/60 p-4"
-                onClick={() => setActivePhoto(null)}
-                role="dialog"
-                aria-modal="true"
-                aria-label="Preview foto"
-              >
-                <div
-                  className="w-full max-w-sm overflow-hidden rounded-3xl bg-white shadow-[0_22px_45px_rgba(0,0,0,0.5)] sm:max-w-md"
-                  onClick={(e) => e.stopPropagation()}
-                >
-                  <div className="flex items-center justify-between bg-pink-200/95 px-4 py-3">
-                    <p
-                      className="text-xs font-extrabold uppercase tracking-[0.18em] text-zinc-900"
-                      style={{ fontFamily: '"Poppins", sans-serif' }}
-                    >
-                      Foto
-                    </p>
-                    <button
-                      type="button"
-                      onClick={() => setActivePhoto(null)}
-                      className="rounded-xl bg-white px-4 py-2 text-[0.7rem] font-bold uppercase tracking-[0.18em] text-zinc-900 shadow-[0_10px_22px_rgba(0,0,0,0.25)]"
-                      style={{ fontFamily: '"Poppins", sans-serif' }}
-                    >
-                      Tutup
-                    </button>
-                  </div>
-
-                  <div className="bg-white p-3">
-                    <img
-                      key={activePhoto.src}
-                      src={activePhoto.src}
-                      alt={activePhoto.alt}
-                      className="max-h-[40dvh] w-full rounded-2xl bg-white object-contain"
-                      draggable={false}
-                    />
-                  </div>
-                </div>
-              </div>,
-              document.body,
-            )
-          : null}
+        <ImageModal
+          open={!!activePhoto}
+          image={activePhoto}
+          title="Foto"
+          onClose={() => setActivePhoto(null)}
+        />
 
         {/* Section: Organisasi */}
-        <section id="organisasi" className="mt-16 w-full max-w-5xl">
-          <h2
-            className="text-center text-2xl font-extrabold uppercase tracking-[0.18em] text-zinc-900 sm:text-3xl"
-            style={{ fontFamily: '"Poppins", sans-serif' }}
-          >
-            Organisasi
-          </h2>
+        <section id="organisasi" className="mt-24 w-full max-w-5xl scroll-mt-28 sm:mt-28">
+          <div className="flex justify-center">
+            <div className="inline-flex rounded-[2rem] bg-[#7a324c] px-8 py-3 shadow-[0_18px_35px_rgba(0,0,0,0.35)]">
+              <h2
+                className="select-none text-center text-[clamp(3rem,7vw,4.5rem)] text-pink-50 animate-fade-in-up"
+                style={{
+                  fontFamily: '"Great Vibes", cursive',
+                  lineHeight: 1.15,
+                  textShadow: '6px 6px 0 rgba(0,0,0,0.35), 12px 12px 0 rgba(0,0,0,0.18)',
+                }}
+              >
+                Organisasi
+              </h2>
+            </div>
+          </div>
 
-          <div className="mt-10 flex flex-col gap-14">
+          <div className="mt-10 flex flex-col gap-16">
             {organizations.map((org, index) => {
               const isReverse = index % 2 === 1
-              const gridCols = org.photos.length <= 2 ? 'grid-cols-2' : 'grid-cols-2'
+              const gridCols = 'grid-cols-1 sm:grid-cols-2'
               const imgHeight = org.photos.length <= 2 ? 'h-[170px] sm:h-[200px]' : 'h-[150px] sm:h-[170px]'
 
               return (
@@ -376,7 +357,7 @@ export default function Achievment() {
                     {org.meta ? (
                       <p className="mt-1 text-sm font-semibold text-zinc-800 sm:text-base">{org.meta}</p>
                     ) : null}
-                    <p className="mt-4 text-[0.9rem] leading-relaxed text-zinc-900 sm:text-base">
+                    <p className="mt-4 text-justify text-[0.9rem] leading-relaxed text-zinc-900 sm:text-base">
                       {org.description}
                     </p>
                   </div>
@@ -387,20 +368,21 @@ export default function Achievment() {
         </section>
 
         {/* Section: Sertifikasi */}
-        <section id="sertifikasi" className="mt-16 w-full max-w-5xl">
-          <h2
-            className="text-center text-2xl font-extrabold uppercase tracking-[0.18em] text-zinc-900 sm:text-3xl"
-            style={{ fontFamily: '"Poppins", sans-serif' }}
-          >
-            Sertifikasi
-          </h2>
-
-          <p
-            className="mt-3 text-center text-sm text-zinc-800 sm:text-base"
-            style={{ fontFamily: '"Poppins", sans-serif' }}
-          >
-            Beberapa sertifikat dan penghargaan yang pernah saya raih.
-          </p>
+        <section id="sertifikasi" className="mt-24 w-full max-w-5xl scroll-mt-28 sm:mt-28">
+          <div className="flex justify-center">
+            <div className="inline-flex rounded-[2rem] bg-[#7a324c] px-8 py-3 shadow-[0_18px_35px_rgba(0,0,0,0.35)]">
+              <h2
+                className="select-none text-center text-[clamp(3rem,7vw,4.5rem)] text-pink-50 animate-fade-in-up"
+                style={{
+                  fontFamily: '"Great Vibes", cursive',
+                  lineHeight: 1.15,
+                  textShadow: '6px 6px 0 rgba(0,0,0,0.35), 12px 12px 0 rgba(0,0,0,0.18)',
+                }}
+              >
+                Sertifikasi
+              </h2>
+            </div>
+          </div>
 
           <div className="mt-8 flex flex-wrap justify-center gap-6">
             {certificates.map((item, index) => (
