@@ -159,7 +159,7 @@ export default function About() {
                     IPK: 4.00 / 4.00
                   </p>
 
-                  <p className="text-justify text-[0.8rem] font-semibold leading-relaxed text-zinc-900 sm:text-sm md:text-base">
+                  <p className="text-left text-[0.8rem] font-semibold leading-relaxed text-zinc-900 sm:text-sm md:text-base">
                     Memiliki kompetensi akademik yang sangat baik dalam bidang
                     hukum, didukung oleh kemampuan analisis yuridis, penelitian
                     hukum, serta penyusunan argumentasi dan dokumen hukum secara
