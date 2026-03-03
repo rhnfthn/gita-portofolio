@@ -139,7 +139,7 @@ export default function PageShell({
   const rootClassName =
     'h-dvh min-h-dvh bg-cover bg-center bg-no-repeat overflow-x-hidden ' +
     (noScroll ? 'overflow-y-hidden' : 'overflow-y-auto') +
-    (scrollSnap && !noScroll ? ' md:snap-y md:snap-mandatory' : '')
+    (scrollSnap && !noScroll ? ' lg:snap-y lg:snap-proximity' : '')
 
   return (
     <div
