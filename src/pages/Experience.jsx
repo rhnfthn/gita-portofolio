@@ -174,7 +174,7 @@ export default function Achievment() {
     <PageShell title={null} searchText={searchText} scrollSnap>
       <section className="mx-auto w-full max-w-5xl px-4 sm:px-6">
         {/* Section: Pencapaian */}
-        <section id="pencapaian" className="w-full max-w-5xl scroll-mt-28 snap-start min-h-[calc(100dvh-11rem)] pt-4 pb-10 sm:pt-6 sm:pb-12">
+        <section id="pencapaian" className="w-full max-w-5xl scroll-mt-28 md:snap-start md:min-h-[calc(100dvh-11rem)] pt-4 pb-10 sm:pt-6 sm:pb-12">
           <div className="flex justify-center">
             <div className="inline-flex rounded-[2rem] bg-[#7a324c] px-8 py-3 shadow-[0_18px_35px_rgba(0,0,0,0.35)]">
               <h2
@@ -239,7 +239,7 @@ export default function Achievment() {
         </section>
 
         {/* Section: Prestasi Akademik */}
-        <section id="prestasi-akademik" className="w-full max-w-5xl scroll-mt-28 snap-start min-h-[calc(100dvh-11rem)] pt-10 pb-10 sm:pt-12 sm:pb-12">
+        <section id="prestasi-akademik" className="w-full max-w-5xl scroll-mt-28 md:snap-start md:min-h-[calc(100dvh-11rem)] pt-10 pb-10 sm:pt-12 sm:pb-12">
           <div className="flex justify-center">
             <div className="inline-flex rounded-[2rem] bg-[#7a324c] px-8 py-3 shadow-[0_18px_35px_rgba(0,0,0,0.35)]">
               <h2
@@ -295,7 +295,7 @@ export default function Achievment() {
         </section>
 
         {/* Section: Karya Pribadi */}
-        <section id="karya-pribadi" className="w-full max-w-5xl scroll-mt-28 snap-start min-h-[calc(100dvh-11rem)] pt-10 pb-10 sm:pt-12 sm:pb-12">
+        <section id="karya-pribadi" className="w-full max-w-5xl scroll-mt-28 md:snap-start md:min-h-[calc(100dvh-11rem)] pt-10 pb-10 sm:pt-12 sm:pb-12">
           <div className="flex justify-center">
             <div className="inline-flex rounded-[2rem] bg-[#7a324c] px-8 py-3 shadow-[0_18px_35px_rgba(0,0,0,0.35)]">
               <h2
@@ -358,7 +358,7 @@ export default function Achievment() {
         />
 
         {/* Section: Organisasi */}
-        <section id="organisasi" className="w-full max-w-5xl scroll-mt-28 snap-start min-h-[calc(100dvh-11rem)] pt-10 pb-10 sm:pt-12 sm:pb-12">
+        <section id="organisasi" className="w-full max-w-5xl scroll-mt-28 md:snap-start md:min-h-[calc(100dvh-11rem)] pt-10 pb-10 sm:pt-12 sm:pb-12">
           <div className="flex justify-center">
             <div className="inline-flex rounded-[2rem] bg-[#7a324c] px-8 py-3 shadow-[0_18px_35px_rgba(0,0,0,0.35)]">
               <h2
@@ -432,7 +432,7 @@ export default function Achievment() {
         </section>
 
         {/* Section: Sertifikasi */}
-        <section id="sertifikasi" className="w-full max-w-5xl scroll-mt-28 snap-start min-h-[calc(100dvh-11rem)] pt-10 pb-10 sm:pt-12 sm:pb-12">
+        <section id="sertifikasi" className="w-full max-w-5xl scroll-mt-28 md:snap-start md:min-h-[calc(100dvh-11rem)] pt-10 pb-10 sm:pt-12 sm:pb-12">
           <div className="flex justify-center">
             <div className="inline-flex rounded-[2rem] bg-[#7a324c] px-8 py-3 shadow-[0_18px_35px_rgba(0,0,0,0.35)]">
               <h2
