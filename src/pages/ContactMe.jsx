@@ -73,7 +73,7 @@ export default function ContactMe() {
 
   return (
     <PageShell title={null} searchText="Hubungi Saya - Gita Roito Dian Tumanggor">
-      <div className="flex min-h-[calc(100dvh-11rem)] items-start justify-center py-6 sm:py-8 md:h-[calc(100dvh-11rem)] md:items-center">
+      <div className="flex min-h-[calc(100dvh-11rem)] items-center justify-center py-6 sm:py-8 md:h-[calc(100dvh-11rem)]">
         <div className="flex w-full max-w-4xl flex-col items-center justify-center gap-8 px-4 text-center md:flex-row md:items-end md:text-left">
           {/* Left (desktop): title + icons */}
           <div className="flex w-full flex-col items-center md:flex-1 md:items-start">
