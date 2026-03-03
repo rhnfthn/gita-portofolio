@@ -265,13 +265,13 @@ export default function Achievment() {
                       key={photo.src}
                       type="button"
                       onClick={() => setActivePhoto(photo)}
-                      className="group overflow-hidden rounded-2xl bg-white shadow-[0_12px_24px_rgba(0,0,0,0.25)] transition-transform duration-300 hover:scale-[1.02]"
+                      className="group overflow-hidden rounded-2xl bg-[#7f344f] shadow-[0_12px_24px_rgba(0,0,0,0.25)] transition-transform duration-300 hover:scale-[1.02]"
                       aria-label={`Buka foto ${photo.alt}`}
                     >
                       <img
                         src={photo.src}
                         alt={photo.alt}
-                        className="aspect-[3/4] w-full object-cover"
+                        className="h-[280px] w-full object-contain sm:h-[320px]"
                         draggable={false}
                         loading="lazy"
                       />
