@@ -51,7 +51,7 @@ export default function About() {
       {/* Section 1: About Me */}
       <div
         id="about-me"
-        className="flex min-h-[calc(100dvh-11rem)] items-center justify-center py-4"
+        className="flex justify-center pt-4 pb-10 sm:pt-6 sm:pb-12"
       >
         <div className="flex w-full flex-col items-center gap-8 md:flex-row md:items-center md:gap-12 lg:gap-16">
           {/* Left: purple panel + overlapping cutout photos (reference-style) */}
@@ -118,7 +118,7 @@ export default function About() {
       </div>
 
       {/* Section 2: Education */}
-      <section id="pendidikan" className="mt-10 pb-12">
+      <section id="pendidikan" className="mt-8 pb-12 sm:mt-10">
         <div className="mx-auto flex w-full max-w-6xl flex-col gap-8 md:gap-10">
           {/* Title */}
           <div className="flex items-center">
