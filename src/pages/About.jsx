@@ -84,7 +84,7 @@ export default function About() {
                 className="text-3xl font-extrabold uppercase tracking-[0.18em] text-zinc-900 sm:text-4xl md:text-5xl"
                 style={{ fontFamily: "Poppins, sans-serif" }}
               >
-                Hi, Saya Gita
+                Halo, Saya Gita
               </h1>
               <h2
                 className="mt-1 text-xl font-extrabold uppercase tracking-[0.16em] text-zinc-900 sm:text-2xl"
@@ -93,7 +93,7 @@ export default function About() {
                 Roito Dian Tumanggor
               </h2>
 
-              <div className="mt-6 text-sm font-medium leading-relaxed text-zinc-900 text-justify sm:text-base">
+              <div className="mt-6 text-sm font-medium leading-relaxed text-zinc-900 text-left sm:text-base">
                 <p className="mb-3">
                   Saya merupakan mahasiswi yang memiliki minat kuat dalam
                   pengembangan kepemimpinan, pemberdayaan komunitas, dan
