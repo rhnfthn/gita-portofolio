@@ -14,84 +14,67 @@ export default function ContactMe() {
   const handleSubmit = (e) => {
     e.preventDefault()
 
-    const phoneNumber = '6281313289971' // 0813... -> 62 (Indonesia)
+    const phoneNumber = '6281313289971' // target WhatsApp (format internasional tanpa +)
 
     const message = `Nama: ${nama}\nEmail: ${email}\nNo Whatsapp: ${whatsapp}\nPesan: ${pesan}`
     const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
       message
     )}`
 
-    window.open(url, '_blank')
-
-    alert('Pesan berhasil terkirim!')
-
-    setNama('')
-    setEmail('')
-    setWhatsapp('')
-    setPesan('')
+    // Redirect ke WhatsApp dengan pesan terisi.
+    // Catatan: pengiriman final tetap dilakukan user di WhatsApp.
+    window.location.href = url
   }
 
-  const contactIcons = (
-    <div className="flex items-center gap-4">
-      <a
-        href="https://www.linkedin.com/in/gita-roito-dian-tumanggor-8043833b2/"
-        target="_blank"
-        rel="noreferrer"
-        className="flex h-14 w-14 items-center justify-center rounded-xl bg-white shadow-[0_10px_22px_rgba(0,0,0,0.35)] transition-transform duration-300 hover:scale-[1.06] hover:shadow-xl sm:h-16 sm:w-16"
-      >
-        <img
-          src={linkedinLogo}
-          alt="LinkedIn"
-          className="h-10 w-10 cursor-pointer object-contain sm:h-12 sm:w-12"
-          draggable={false}
-        />
-      </a>
-      <a
-        href="https://www.instagram.com/git.___00"
-        target="_blank"
-        rel="noreferrer"
-        className="flex h-14 w-14 items-center justify-center rounded-xl bg-white shadow-[0_10px_22px_rgba(0,0,0,0.35)] transition-transform duration-300 hover:scale-[1.06] hover:shadow-xl sm:h-16 sm:w-16"
-      >
-        <img
-          src={igLogo}
-          alt="Instagram"
-          className="h-10 w-10 cursor-pointer object-contain sm:h-12 sm:w-12"
-          draggable={false}
-        />
-      </a>
-      <a
-        href="https://wa.me/6281328511954"
-        target="_blank"
-        rel="noreferrer"
-        className="flex h-14 w-14 items-center justify-center rounded-xl bg-white shadow-[0_10px_22px_rgba(0,0,0,0.35)] transition-transform duration-300 hover:scale-[1.06] hover:shadow-xl sm:h-16 sm:w-16"
-      >
-        <img
-          src={waLogo}
-          alt="WhatsApp"
-          className="h-10 w-10 cursor-pointer object-contain sm:h-12 sm:w-12"
-          draggable={false}
-        />
-      </a>
-      <a
-        href="https://mail.google.com/mail/?view=cm&fs=1&to=gitatumanggorstudy@gmail.com"
-        target="_blank"
-        rel="noreferrer"
-        className="flex h-14 w-14 items-center justify-center rounded-xl bg-white shadow-[0_10px_22px_rgba(0,0,0,0.35)] transition-transform duration-300 hover:scale-[1.06] hover:shadow-xl sm:h-16 sm:w-16"
-      >
-        <img
-          src={gmailLogo}
-          alt="Gmail"
-          className="h-10 w-10 cursor-pointer object-contain sm:h-12 sm:w-12"
-          draggable={false}
-        />
-      </a>
+  const contactLinks = [
+    {
+      logoSrc: linkedinLogo,
+      logoAlt: 'LinkedIn',
+      label: 'LinkedIn',
+      value: 'Gita Roito Dian Tumanggor',
+    },
+    {
+      logoSrc: igLogo,
+      logoAlt: 'Instagram',
+      label: 'Instagram',
+      value: 'git.___00',
+    },
+    {
+      logoSrc: waLogo,
+      logoAlt: 'WhatsApp',
+      label: 'WhatsApp',
+      value: '+6281313289971',
+    },
+    {
+      logoSrc: gmailLogo,
+      logoAlt: 'Gmail',
+      label: 'Email',
+      value: 'gitatumanggorstudy@gmail.com',
+    },
+  ]
+
+  const contactCard = (
+    <div className="w-full max-w-md rounded-[1.75rem] bg-pink-200/95 px-5 py-5 shadow-[0_18px_35px_rgba(0,0,0,0.35)]">
+        <div className="flex flex-col gap-3" style={{ fontFamily: '"Poppins", sans-serif' }}>
+          {contactLinks.map((item) => (
+            <div
+              key={item.label}
+              className="flex items-center gap-4 rounded-2xl bg-white/80 px-4 py-3 shadow-[0_10px_22px_rgba(0,0,0,0.25)] transition-transform duration-300 hover:scale-[1.02]"
+            >
+              <img src={item.logoSrc} alt={item.logoAlt} className="h-9 w-9 object-contain" draggable={false} />
+              <p className="min-w-0 truncate text-xs font-semibold text-zinc-800 sm:text-sm">
+                {item.value}
+              </p>
+            </div>
+          ))}
+        </div>
     </div>
   )
 
   return (
-    <PageShell title={null} searchText="Hubungi Saya - Gita Roito Dian Tumanggor">
-      <div className="flex min-h-[calc(100dvh-11rem)] items-center justify-center py-10 sm:py-12">
-        <div className="flex w-full max-w-4xl flex-col items-center justify-center gap-10 px-4 text-center md:flex-row md:items-end md:text-left">
+    <PageShell title={null} noScroll searchText="Hubungi Saya - Gita Roito Dian Tumanggor">
+      <div className="flex h-[calc(100dvh-11rem)] items-center justify-center py-6 sm:py-8">
+        <div className="flex w-full max-w-4xl flex-col items-center justify-center gap-8 px-4 text-center md:flex-row md:items-end md:text-left">
           {/* Left (desktop): title + icons */}
           <div className="flex w-full flex-col items-center md:flex-1 md:items-start">
             <h1
@@ -106,10 +89,8 @@ export default function ContactMe() {
               <span className="mt-2 block text-[clamp(4.2rem,9vw,6rem)]">Saya</span>
             </h1>
 
-            {/* Desktop icons (kept like desktop layout) */}
-            <div className="mt-10 hidden rounded-[1.75rem] bg-pink-200/95 px-5 py-4 shadow-[0_18px_35px_rgba(0,0,0,0.35)] md:inline-flex">
-              {contactIcons}
-            </div>
+            {/* Desktop contact card */}
+            <div className="mt-8 hidden md:block">{contactCard}</div>
           </div>
 
           {/* Right: form */}
@@ -162,7 +143,7 @@ export default function ContactMe() {
                 Pesan
               </label>
               <textarea
-                rows="4"
+                rows="3"
                 value={pesan}
                 onChange={(e) => setPesan(e.target.value)}
                 required
@@ -179,10 +160,8 @@ export default function ContactMe() {
           </form>
           </div>
 
-          {/* Mobile icons (keep mobile order: after form) */}
-          <div className="mt-10 inline-flex rounded-[1.75rem] bg-pink-200/95 px-5 py-4 shadow-[0_18px_35px_rgba(0,0,0,0.35)] md:hidden">
-            {contactIcons}
-          </div>
+          {/* Mobile contact card (after form) */}
+          <div className="mt-10 w-full md:hidden">{contactCard}</div>
         </div>
       </div>
     </PageShell>

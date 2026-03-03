@@ -2,7 +2,7 @@ import PageShell from '../components/PageShell.jsx'
 
 export default function Home() {
   return (
-    <PageShell title={null} noScroll searchText="Home - Gita Roito Dian Tumanggor">
+    <PageShell title={null} noScroll searchText="Beranda - Gita Roito Dian Tumanggor">
       <div className="flex min-h-[calc(100dvh-10rem)] flex-col items-center justify-center text-center sm:min-h-[calc(100dvh-11rem)]">
         <h1
           className="select-none text-zinc-900 animate-fade-in-up"

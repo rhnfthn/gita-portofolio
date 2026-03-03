@@ -10,6 +10,7 @@ export default function PageShell({
   headerRightContent,
   searchText,
   noScroll = false,
+  scrollSnap = false,
   contentMaxWidthClass = 'max-w-5xl',
 }) {
   const location = useLocation()
@@ -23,10 +24,10 @@ export default function PageShell({
   }, [location.pathname])
 
   const links = [
-    { label: 'Home', to: '/' },
-    { label: 'About', to: '/about' },
-    { label: 'Achievment', to: '/achievment' },
-    { label: 'Contact Me', to: '/contact' },
+    { label: 'Beranda', to: '/' },
+    { label: 'Tentang', to: '/about' },
+    { label: 'Pencapaian', to: '/achievment' },
+    { label: 'Kontak', to: '/contact' },
   ]
 
   const routeOrder = links.map((link) => link.to)
@@ -137,7 +138,8 @@ export default function PageShell({
 
   const rootClassName =
     'h-dvh min-h-dvh bg-cover bg-center bg-no-repeat overflow-x-hidden ' +
-    (noScroll ? 'overflow-y-hidden' : 'overflow-y-auto')
+    (noScroll ? 'overflow-y-hidden' : 'overflow-y-auto') +
+    (scrollSnap && !noScroll ? ' snap-y snap-mandatory' : '')
 
   return (
     <div

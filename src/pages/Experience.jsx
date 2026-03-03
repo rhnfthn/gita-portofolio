@@ -6,6 +6,8 @@ import achievment1 from '../assets/achievment/achievment1.png'
 import achievment2 from '../assets/achievment/achievment2.png'
 import achievment3 from '../assets/achievment/achievment3.png'
 import achievment4 from '../assets/achievment/achievment4.png'
+import achievment5 from '../assets/achievment/achievment5.png'
+import achievment6 from '../assets/achievment/achievment6.png'
 
 import org1Photo1 from '../assets/organization/org1/org1.jpeg'
 import org1Photo2 from '../assets/organization/org1/org2.jpeg'
@@ -58,12 +60,18 @@ export default function Achievment() {
     },
   ]
 
+  const prestasiAkademikPhotos = [
+    { src: achievment5, alt: 'Prestasi Akademik 1' },
+    { src: achievment6, alt: 'Prestasi Akademik 2' },
+  ]
+
   const [activePhoto, setActivePhoto] = useState(null)
 
   const sectionConfigs = useMemo(
     () => [
-      { id: 'karya-pribadi', label: 'Karya Pribadi' },
       { id: 'pencapaian', label: 'Pencapaian' },
+      { id: 'prestasi-akademik', label: 'Prestasi Akademik' },
+      { id: 'karya-pribadi', label: 'Karya Pribadi' },
       { id: 'organisasi', label: 'Organisasi' },
       { id: 'sertifikasi', label: 'Sertifikasi' },
     ],
@@ -163,66 +171,10 @@ export default function Achievment() {
   const searchText = `${activeSectionLabel} - Gita Roito Dian Tumanggor`
 
   return (
-    <PageShell title={null} searchText={searchText}>
-      <section className="mx-auto flex min-h-[calc(100dvh-11rem)] w-full max-w-5xl flex-col items-center px-4 py-10 sm:px-6 sm:py-12">
-        {/* Section: Karya Pribadi */}
-        <section id="karya-pribadi" className="w-full max-w-5xl scroll-mt-28">
-          <div className="flex justify-center">
-            <div className="inline-flex rounded-[2rem] bg-[#7a324c] px-8 py-3 shadow-[0_18px_35px_rgba(0,0,0,0.35)]">
-              <h2
-                className="select-none text-center text-[clamp(3rem,7vw,4.5rem)] text-pink-50 animate-fade-in-up"
-                style={{
-                  fontFamily: '"Great Vibes", cursive',
-                  lineHeight: 1.15,
-                  textShadow: '6px 6px 0 rgba(0,0,0,0.35), 12px 12px 0 rgba(0,0,0,0.18)',
-                }}
-              >
-                Karya Pribadi
-              </h2>
-            </div>
-          </div>
-
-          <div className="mt-12 flex flex-col gap-8 md:flex-row md:items-center md:gap-10">
-            {/* Left: image card */}
-            <div className="w-full md:w-fit md:max-w-[520px] md:flex-none">
-              <button
-                type="button"
-                onClick={() => setActivePhoto({ src: karya1, alt: 'Karya Pribadi' })}
-                className="block w-full overflow-hidden rounded-[2.5rem] bg-[#7f344f] shadow-[0_18px_35px_rgba(0,0,0,0.35)] transition-transform duration-300 hover:scale-[1.02] hover:shadow-xl"
-                aria-label="Buka foto Karya Pribadi"
-              >
-                <img
-                  src={karya1}
-                  alt="Karya Pribadi"
-                  className="h-[320px] w-full object-contain p-6 sm:h-[390px] md:h-[470px]"
-                  draggable={false}
-                />
-              </button>
-            </div>
-
-            {/* Right: text card */}
-            <div
-              className="w-full rounded-2xl bg-pink-200/95 px-6 py-7 text-zinc-900 shadow-[0_18px_35px_rgba(0,0,0,0.35)] transition-transform duration-300 hover:scale-[1.02] hover:shadow-xl md:w-[440px] md:flex-none md:px-8 md:py-9 lg:w-[480px]"
-              style={{ fontFamily: '"Poppins", sans-serif' }}
-            >
-              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-zinc-700">
-                Poster Edukatif
-              </p>
-              <p className="mt-2 text-base font-extrabold tracking-[0.02em] text-zinc-900 sm:text-lg">
-                “Mengapa Kita Ingin Hidup Tertib, tetapi Enggan Diatur?”
-              </p>
-
-              <p className="mt-4 text-justify text-[0.9rem] leading-relaxed text-zinc-900 sm:text-base">
-                Proyek desain pribadi yang mengangkat refleksi sosial mengenai kontradiksi sikap masyarakat terhadap aturan dan
-                ketertiban. Poster ini dibuat untuk melatih kemampuan komunikasi visual dalam menyampaikan pesan kritis secara
-                persuasif dan mudah dipahami.
-              </p>
-            </div>
-          </div>
-        </section>
-
+    <PageShell title={null} searchText={searchText} scrollSnap>
+      <section className="mx-auto w-full max-w-5xl px-4 sm:px-6">
         {/* Section: Pencapaian */}
-        <section id="pencapaian" className="mt-24 w-full max-w-5xl scroll-mt-28 sm:mt-28">
+        <section id="pencapaian" className="w-full max-w-5xl scroll-mt-28 snap-start min-h-[calc(100dvh-11rem)] pt-4 pb-10 sm:pt-6 sm:pb-12">
           <div className="flex justify-center">
             <div className="inline-flex rounded-[2rem] bg-[#7a324c] px-8 py-3 shadow-[0_18px_35px_rgba(0,0,0,0.35)]">
               <h2
@@ -276,12 +228,124 @@ export default function Achievment() {
                 (Tahap Karantina &amp; Grand Final)
               </p>
 
-              <ul className="mt-5 list-disc space-y-2 pl-5 text-justify text-[0.9rem] leading-relaxed text-zinc-900 sm:text-base">
+              <ul className="mt-5 list-disc space-y-2 pl-5 text-left text-[0.9rem] leading-relaxed text-zinc-900 sm:text-base">
                 <li>Lolos seleksi administrasi dan wawancara tingkat provinsi</li>
                 <li>Mengikuti tahap karantina dan pembinaan kepemimpinan</li>
                 <li>Mengembangkan dan mempresentasikan gagasan kepeloporan untuk pemberdayaan pemuda</li>
                 <li>Berpartisipasi dalam pelatihan pengembangan kapasitas dan karakter kepemimpinan</li>
               </ul>
+            </div>
+          </div>
+        </section>
+
+        {/* Section: Prestasi Akademik */}
+        <section id="prestasi-akademik" className="w-full max-w-5xl scroll-mt-28 snap-start min-h-[calc(100dvh-11rem)] pt-10 pb-10 sm:pt-12 sm:pb-12">
+          <div className="flex justify-center">
+            <div className="inline-flex rounded-[2rem] bg-[#7a324c] px-8 py-3 shadow-[0_18px_35px_rgba(0,0,0,0.35)]">
+              <h2
+                className="select-none text-center text-[clamp(3rem,7vw,4.5rem)] text-pink-50 animate-fade-in-up"
+                style={{
+                  fontFamily: '"Great Vibes", cursive',
+                  lineHeight: 1.15,
+                  textShadow: '6px 6px 0 rgba(0,0,0,0.35), 12px 12px 0 rgba(0,0,0,0.18)',
+                }}
+              >
+                Prestasi Akademik
+              </h2>
+            </div>
+          </div>
+
+          <div className="mt-10 flex flex-col gap-8 md:flex-row md:items-start md:gap-10">
+            {/* Left: 2 images */}
+            <div className="w-full md:w-[520px] md:flex-none">
+              <div className="rounded-[2.5rem] bg-[#7f344f] p-6 shadow-[0_18px_35px_rgba(0,0,0,0.35)]">
+                <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                  {prestasiAkademikPhotos.map((photo) => (
+                    <button
+                      key={photo.src}
+                      type="button"
+                      onClick={() => setActivePhoto(photo)}
+                      className="group overflow-hidden rounded-2xl bg-white shadow-[0_12px_24px_rgba(0,0,0,0.25)] transition-transform duration-300 hover:scale-[1.02]"
+                      aria-label={`Buka foto ${photo.alt}`}
+                    >
+                      <img
+                        src={photo.src}
+                        alt={photo.alt}
+                        className="aspect-[3/4] w-full object-cover"
+                        draggable={false}
+                        loading="lazy"
+                      />
+                    </button>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Right: text card */}
+            <div
+              className="w-full rounded-2xl bg-pink-200/95 px-6 pb-7 pt-10 text-zinc-900 shadow-[0_18px_35px_rgba(0,0,0,0.35)] md:flex-1 md:px-8 md:pb-9 md:pt-12"
+              style={{ fontFamily: '"Poppins", sans-serif' }}
+            >
+              <ul className="list-disc space-y-3 pl-5 text-left text-[0.9rem] leading-relaxed text-zinc-900 sm:text-base">
+                <li>Diterima di Universitas Andalas melalui Jalur Mandiri berbasis skor SNBT (2025)</li>
+                <li>Diterima di Universitas Trisakti melalui Jalur Seleksi berbasis skor SNBT (2025)</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        {/* Section: Karya Pribadi */}
+        <section id="karya-pribadi" className="w-full max-w-5xl scroll-mt-28 snap-start min-h-[calc(100dvh-11rem)] pt-10 pb-10 sm:pt-12 sm:pb-12">
+          <div className="flex justify-center">
+            <div className="inline-flex rounded-[2rem] bg-[#7a324c] px-8 py-3 shadow-[0_18px_35px_rgba(0,0,0,0.35)]">
+              <h2
+                className="select-none text-center text-[clamp(3rem,7vw,4.5rem)] text-pink-50 animate-fade-in-up"
+                style={{
+                  fontFamily: '"Great Vibes", cursive',
+                  lineHeight: 1.15,
+                  textShadow: '6px 6px 0 rgba(0,0,0,0.35), 12px 12px 0 rgba(0,0,0,0.18)',
+                }}
+              >
+                Karya Pribadi
+              </h2>
+            </div>
+          </div>
+
+          <div className="mt-12 flex flex-col gap-8 md:flex-row md:items-center md:gap-10">
+            {/* Left: image card */}
+            <div className="w-full md:w-fit md:max-w-[520px] md:flex-none">
+              <button
+                type="button"
+                onClick={() => setActivePhoto({ src: karya1, alt: 'Karya Pribadi' })}
+                className="block w-full overflow-hidden rounded-[2.5rem] bg-[#7f344f] shadow-[0_18px_35px_rgba(0,0,0,0.35)] transition-transform duration-300 hover:scale-[1.02] hover:shadow-xl"
+                aria-label="Buka foto Karya Pribadi"
+              >
+                <img
+                  src={karya1}
+                  alt="Karya Pribadi"
+                  className="h-[320px] w-full object-contain p-6 sm:h-[390px] md:h-[470px]"
+                  draggable={false}
+                />
+              </button>
+            </div>
+
+            {/* Right: text card */}
+            <div
+              className="w-full rounded-2xl bg-pink-200/95 px-6 py-7 text-zinc-900 shadow-[0_18px_35px_rgba(0,0,0,0.35)] transition-transform duration-300 hover:scale-[1.02] hover:shadow-xl md:w-[440px] md:flex-none md:px-8 md:py-9 lg:w-[480px]"
+              style={{ fontFamily: '"Poppins", sans-serif' }}
+            >
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-zinc-700">
+                Poster Edukatif
+              </p>
+              <p className="mt-2 text-base font-extrabold tracking-[0.02em] text-zinc-900 sm:text-lg">
+                “Mengapa Kita Ingin Hidup Tertib, tetapi Enggan Diatur?”
+              </p>
+
+              <p className="mt-4 text-left text-[0.9rem] leading-relaxed text-zinc-900 sm:text-base">
+                Proyek desain pribadi yang mengangkat refleksi sosial mengenai kontradiksi sikap masyarakat terhadap aturan dan
+                ketertiban. Poster ini dibuat untuk melatih kemampuan komunikasi visual dalam menyampaikan pesan kritis secara
+                persuasif dan mudah dipahami.
+              </p>
             </div>
           </div>
         </section>
@@ -294,7 +358,7 @@ export default function Achievment() {
         />
 
         {/* Section: Organisasi */}
-        <section id="organisasi" className="mt-24 w-full max-w-5xl scroll-mt-28 sm:mt-28">
+        <section id="organisasi" className="w-full max-w-5xl scroll-mt-28 snap-start min-h-[calc(100dvh-11rem)] pt-10 pb-10 sm:pt-12 sm:pb-12">
           <div className="flex justify-center">
             <div className="inline-flex rounded-[2rem] bg-[#7a324c] px-8 py-3 shadow-[0_18px_35px_rgba(0,0,0,0.35)]">
               <h2
@@ -357,7 +421,7 @@ export default function Achievment() {
                     {org.meta ? (
                       <p className="mt-1 text-sm font-semibold text-zinc-800 sm:text-base">{org.meta}</p>
                     ) : null}
-                    <p className="mt-4 text-justify text-[0.9rem] leading-relaxed text-zinc-900 sm:text-base">
+                    <p className="mt-4 text-left text-[0.9rem] leading-relaxed text-zinc-900 sm:text-base">
                       {org.description}
                     </p>
                   </div>
@@ -368,7 +432,7 @@ export default function Achievment() {
         </section>
 
         {/* Section: Sertifikasi */}
-        <section id="sertifikasi" className="mt-24 w-full max-w-5xl scroll-mt-28 sm:mt-28">
+        <section id="sertifikasi" className="w-full max-w-5xl scroll-mt-28 snap-start min-h-[calc(100dvh-11rem)] pt-10 pb-10 sm:pt-12 sm:pb-12">
           <div className="flex justify-center">
             <div className="inline-flex rounded-[2rem] bg-[#7a324c] px-8 py-3 shadow-[0_18px_35px_rgba(0,0,0,0.35)]">
               <h2

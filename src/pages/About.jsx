@@ -1,5 +1,5 @@
 import PageShell from '../components/PageShell.jsx'
-import { useEffect, useMemo, useRef, useState } from 'react'
+import { useState } from 'react'
 import { motion } from 'framer-motion'
 import ImageModal from '../components/ImageModal.jsx'
 import me123 from '../assets/me/me123.png'
@@ -34,19 +34,6 @@ export default function About() {
     setActiveImage(image)
   }
 
-  const sectionConfigs = useMemo(
-    () => [
-      { id: 'about-me', label: 'About Me' },
-      { id: 'pendidikan', label: 'Pendidikan' },
-      { id: 'skill', label: 'Skill' },
-      { id: 'media-sosial', label: 'Media Sosial' },
-    ],
-    [],
-  )
-
-  const [activeSectionLabel, setActiveSectionLabel] = useState(sectionConfigs[0]?.label ?? 'About')
-  const visibilityByIdRef = useRef(new Map())
-
   const cycleForward = () => {
     setSocialOrder(([first, ...rest]) => [...rest, first])
   }
@@ -59,48 +46,13 @@ export default function About() {
     })
   }
 
-  useEffect(() => {
-    if (typeof window === 'undefined') return
-
-    const elements = sectionConfigs
-      .map((s) => document.getElementById(s.id))
-      .filter(Boolean)
-
-    if (elements.length === 0) return
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        for (const entry of entries) {
-          visibilityByIdRef.current.set(entry.target.id, entry.isIntersecting ? entry.intersectionRatio : 0)
-        }
-
-        let best = null
-        for (const s of sectionConfigs) {
-          const ratio = visibilityByIdRef.current.get(s.id) ?? 0
-          if (!best || ratio > best.ratio) best = { id: s.id, label: s.label, ratio }
-        }
-
-        if (best?.ratio > 0 && best.label !== activeSectionLabel) {
-          setActiveSectionLabel(best.label)
-        }
-      },
-      {
-        root: null,
-        rootMargin: '-90px 0px -65% 0px',
-        threshold: [0, 0.15, 0.3, 0.45, 0.6, 0.75, 1],
-      },
-    )
-
-    elements.forEach((el) => observer.observe(el))
-    return () => observer.disconnect()
-  }, [sectionConfigs, activeSectionLabel])
-
-  const searchText = `${activeSectionLabel} - Gita Roito Dian Tumanggor`
-
   return (
-    <PageShell title={null} contentMaxWidthClass="max-w-screen-2xl" searchText={searchText}>
+    <PageShell title={null} contentMaxWidthClass="max-w-screen-2xl">
       {/* Section 1: About Me */}
-      <div id="about-me" className="flex min-h-[calc(100dvh-11rem)] items-center justify-center py-4">
+      <div
+        id="about-me"
+        className="flex min-h-[calc(100dvh-11rem)] items-center justify-center py-4"
+      >
         <div className="flex w-full flex-col items-center gap-8 md:flex-row md:items-center md:gap-12 lg:gap-16">
           {/* Left: purple panel + overlapping cutout photos (reference-style) */}
           <div className="relative mx-auto md:mx-0 md:flex-none">
@@ -113,7 +65,12 @@ export default function About() {
                   alt="Gita Roito Dian Tumanggor"
                   className="h-[112%] w-auto cursor-zoom-in select-none object-contain drop-shadow-[0_18px_35px_rgba(0,0,0,0.4)]"
                   draggable={false}
-                  onClick={(e) => openImage({ src: me123, alt: 'Gita Roito Dian Tumanggor' }, e)}
+                  onClick={(e) =>
+                    openImage(
+                      { src: me123, alt: "Gita Roito Dian Tumanggor" },
+                      e,
+                    )
+                  }
                 />
               </div>
             </div>
@@ -181,7 +138,10 @@ export default function About() {
           </div>
 
           {/* Education card (reference-style): text card + person in front */}
-          <div className="relative" style={{ fontFamily: "Poppins, sans-serif" }}>
+          <div
+            className="relative"
+            style={{ fontFamily: "Poppins, sans-serif" }}
+          >
             <div className="relative overflow-visible rounded-[2.5rem] bg-pink-200/95 px-6 pt-7 pb-3 shadow-[0_18px_35px_rgba(0,0,0,0.35)] sm:pt-8 sm:pb-4 md:px-10 md:py-10 md:pr-64 lg:pr-72">
               <div className="flex flex-col gap-6 md:block">
                 {/* Left: text */}
@@ -215,7 +175,12 @@ export default function About() {
                     alt="Gita Roito Dian Tumanggor"
                     className="h-64 w-auto cursor-zoom-in select-none object-contain drop-shadow-[0_18px_35px_rgba(0,0,0,0.25)] sm:h-72 md:h-[22rem] lg:h-[24rem]"
                     draggable={false}
-                    onClick={(e) => openImage({ src: me4, alt: 'Gita Roito Dian Tumanggor' }, e)}
+                    onClick={(e) =>
+                      openImage(
+                        { src: me4, alt: "Gita Roito Dian Tumanggor" },
+                        e,
+                      )
+                    }
                   />
                 </div>
               </div>
@@ -299,7 +264,12 @@ export default function About() {
                       alt="Logo Google Workspace"
                       className="h-full w-full cursor-zoom-in object-contain p-2"
                       draggable={false}
-                      onClick={(e) => openImage({ src: workspaceLogo, alt: 'Logo Google Workspace' }, e)}
+                      onClick={(e) =>
+                        openImage(
+                          { src: workspaceLogo, alt: "Logo Google Workspace" },
+                          e,
+                        )
+                      }
                     />
                   </div>
                   <div className="h-16 w-16 rounded-sm bg-white shadow-[0_8px_18px_rgba(0,0,0,0.35)] transition-transform duration-300 hover:scale-[1.06] hover:shadow-xl sm:h-20 sm:w-20">
@@ -308,7 +278,12 @@ export default function About() {
                       alt="Logo Microsoft Word"
                       className="h-full w-full cursor-zoom-in object-contain p-2"
                       draggable={false}
-                      onClick={(e) => openImage({ src: wordLogo, alt: 'Logo Microsoft Word' }, e)}
+                      onClick={(e) =>
+                        openImage(
+                          { src: wordLogo, alt: "Logo Microsoft Word" },
+                          e,
+                        )
+                      }
                     />
                   </div>
                   <div className="h-16 w-16 rounded-sm bg-white shadow-[0_8px_18px_rgba(0,0,0,0.35)] transition-transform duration-300 hover:scale-[1.06] hover:shadow-xl sm:h-20 sm:w-20">
@@ -317,7 +292,9 @@ export default function About() {
                       alt="Logo Canva"
                       className="h-full w-full cursor-zoom-in object-contain p-2"
                       draggable={false}
-                      onClick={(e) => openImage({ src: canvaLogo, alt: 'Logo Canva' }, e)}
+                      onClick={(e) =>
+                        openImage({ src: canvaLogo, alt: "Logo Canva" }, e)
+                      }
                     />
                   </div>
                   <div className="h-16 w-16 rounded-sm bg-white shadow-[0_8px_18px_rgba(0,0,0,0.35)] transition-transform duration-300 hover:scale-[1.06] hover:shadow-xl sm:h-20 sm:w-20">
@@ -326,7 +303,9 @@ export default function About() {
                       alt="Logo CapCut"
                       className="h-full w-full cursor-zoom-in object-contain p-2"
                       draggable={false}
-                      onClick={(e) => openImage({ src: capcutLogo, alt: 'Logo CapCut' }, e)}
+                      onClick={(e) =>
+                        openImage({ src: capcutLogo, alt: "Logo CapCut" }, e)
+                      }
                     />
                   </div>
                   <div className="h-16 w-16 rounded-sm bg-white shadow-[0_8px_18px_rgba(0,0,0,0.35)] transition-transform duration-300 hover:scale-[1.06] hover:shadow-xl sm:h-20 sm:w-20">
@@ -335,7 +314,15 @@ export default function About() {
                       alt="Logo Microsoft PowerPoint"
                       className="h-full w-full cursor-zoom-in object-contain p-2"
                       draggable={false}
-                      onClick={(e) => openImage({ src: powerpointLogo, alt: 'Logo Microsoft PowerPoint' }, e)}
+                      onClick={(e) =>
+                        openImage(
+                          {
+                            src: powerpointLogo,
+                            alt: "Logo Microsoft PowerPoint",
+                          },
+                          e,
+                        )
+                      }
                     />
                   </div>
                 </div>
@@ -355,7 +342,7 @@ export default function About() {
                 fontFamily: '"Great Vibes", cursive',
                 lineHeight: 1.15,
                 textShadow:
-                  '6px 6px 0 rgba(0,0,0,0.35), 12px 12px 0 rgba(0,0,0,0.18)',
+                  "6px 6px 0 rgba(0,0,0,0.35), 12px 12px 0 rgba(0,0,0,0.18)",
               }}
             >
               Media Sosial
@@ -372,35 +359,53 @@ export default function About() {
                 {socialOrder
                   .map((idx) => socialImages[idx])
                   .map((item, stackIndex) => {
-                    const zIndex = 30 - stackIndex
-                    const x = stackIndex * 28
-                    const y = stackIndex * 16
-                    const scale = 1 - stackIndex * 0.06
-                    const rotate = 0
+                    const zIndex = 30 - stackIndex;
+                    const x = stackIndex * 28;
+                    const y = stackIndex * 16;
+                    const scale = 1 - stackIndex * 0.06;
+                    const rotate = 0;
 
                     return (
                       <div
                         key={item.key}
                         className="absolute left-1/2 top-1/2"
-                        style={{ zIndex, transform: 'translate(-50%, -52%)' }}
+                        style={{ zIndex, transform: "translate(-50%, -52%)" }}
                       >
                         <MotionDiv
-                          drag={stackIndex === 0 ? 'x' : false}
+                          drag={stackIndex === 0 ? "x" : false}
                           dragConstraints={{ left: -120, right: 120 }}
                           dragElastic={0.12}
                           onDragEnd={(_, info) => {
-                            if (stackIndex !== 0) return
-                            if (info.offset.x < -55) cycleForward()
-                            else if (info.offset.x > 55) cycleBackward()
+                            if (stackIndex !== 0) return;
+                            if (info.offset.x < -55) cycleForward();
+                            else if (info.offset.x > 55) cycleBackward();
                           }}
                           animate={{ x, y, scale, rotate, opacity: 1 }}
-                          transition={{ type: 'spring', stiffness: 280, damping: 26 }}
-                          whileHover={stackIndex === 0 ? { scale: scale + 0.02 } : undefined}
-                          whileTap={stackIndex === 0 ? { cursor: 'grabbing', rotate: 0, scale: scale + 0.03 } : undefined}
+                          transition={{
+                            type: "spring",
+                            stiffness: 280,
+                            damping: 26,
+                          }}
+                          whileHover={
+                            stackIndex === 0
+                              ? { scale: scale + 0.02 }
+                              : undefined
+                          }
+                          whileTap={
+                            stackIndex === 0
+                              ? {
+                                  cursor: "grabbing",
+                                  rotate: 0,
+                                  scale: scale + 0.03,
+                                }
+                              : undefined
+                          }
                         >
                           <div
                             className="h-[320px] w-[220px] rounded-[2rem] bg-white p-4 shadow-[0_18px_35px_rgba(0,0,0,0.22)] sm:h-[370px] sm:w-[250px] md:h-[405px] md:w-[270px]"
-                            onClick={(e) => openImage({ src: item.src, alt: item.alt }, e)}
+                            onClick={(e) =>
+                              openImage({ src: item.src, alt: item.alt }, e)
+                            }
                             role="button"
                             tabIndex={0}
                           >
@@ -413,12 +418,12 @@ export default function About() {
                           </div>
                         </MotionDiv>
                       </div>
-                    )
+                    );
                   })}
 
                 <p
                   className="absolute bottom-4 left-6 text-xs font-semibold uppercase tracking-[0.18em] text-zinc-800/80"
-                  style={{ fontFamily: 'Poppins, sans-serif' }}
+                  style={{ fontFamily: "Poppins, sans-serif" }}
                 >
                   Geser kiri / kanan
                 </p>
@@ -428,7 +433,7 @@ export default function About() {
             {/* Right: text card */}
             <div
               className="w-full rounded-[2.5rem] bg-pink-200/95 px-6 py-6 text-zinc-900 shadow-[0_18px_35px_rgba(0,0,0,0.35)] md:w-fit md:self-start md:px-8 md:py-8"
-              style={{ fontFamily: 'Poppins, sans-serif' }}
+              style={{ fontFamily: "Poppins, sans-serif" }}
             >
               <p className="text-sm font-extrabold uppercase tracking-[0.18em] text-zinc-800 sm:text-base">
                 Terhubung Dengan Saya
@@ -450,15 +455,21 @@ export default function About() {
                       alt="Instagram"
                       className="h-10 w-10 cursor-zoom-in rounded-md object-cover"
                       draggable={false}
-                      onClick={(e) => openImage({ src: igLogo, alt: 'Instagram' }, e)}
+                      onClick={(e) =>
+                        openImage({ src: igLogo, alt: "Instagram" }, e)
+                      }
                     />
-                    <span className="truncate text-sm font-semibold sm:text-base">@git.___00</span>
+                    <span className="truncate text-sm font-semibold sm:text-base">
+                      @git.___00
+                    </span>
                   </div>
-                  <span className="text-xs font-semibold uppercase tracking-[0.18em] text-zinc-700">Buka</span>
+                  <span className="text-xs font-semibold uppercase tracking-[0.18em] text-zinc-700">
+                    Buka
+                  </span>
                 </a>
 
                 <a
-                  href="https://www.linkedin.com/in/gita-roito-dian-tumanggor"
+                  href="https://www.linkedin.com/in/gita-roito-dian-tumanggor-8043833b2/"
                   target="_blank"
                   rel="noreferrer"
                   className="flex items-center justify-between rounded-2xl bg-white/95 px-5 py-4 shadow-[0_10px_22px_rgba(0,0,0,0.25)] transition-transform duration-300 hover:scale-[1.02]"
@@ -469,11 +480,17 @@ export default function About() {
                       alt="LinkedIn"
                       className="h-10 w-10 cursor-zoom-in rounded-md object-contain"
                       draggable={false}
-                      onClick={(e) => openImage({ src: linkedinLogo, alt: 'LinkedIn' }, e)}
+                      onClick={(e) =>
+                        openImage({ src: linkedinLogo, alt: "LinkedIn" }, e)
+                      }
                     />
-                    <span className="truncate text-sm font-semibold sm:text-base">Gita Roito Dian</span>
+                    <span className="truncate text-sm font-semibold sm:text-base">
+                      Gita Roito Dian
+                    </span>
                   </div>
-                  <span className="text-xs font-semibold uppercase tracking-[0.18em] text-zinc-700">Buka</span>
+                  <span className="text-xs font-semibold uppercase tracking-[0.18em] text-zinc-700">
+                    Buka
+                  </span>
                 </a>
 
                 <a
@@ -488,11 +505,17 @@ export default function About() {
                       alt="TikTok"
                       className="h-10 w-10 cursor-zoom-in rounded-md object-cover"
                       draggable={false}
-                      onClick={(e) => openImage({ src: tiktokLogo, alt: 'TikTok' }, e)}
+                      onClick={(e) =>
+                        openImage({ src: tiktokLogo, alt: "TikTok" }, e)
+                      }
                     />
-                    <span className="truncate text-sm font-semibold sm:text-base">@git___0</span>
+                    <span className="truncate text-sm font-semibold sm:text-base">
+                      @git___0
+                    </span>
                   </div>
-                  <span className="text-xs font-semibold uppercase tracking-[0.18em] text-zinc-700">Buka</span>
+                  <span className="text-xs font-semibold uppercase tracking-[0.18em] text-zinc-700">
+                    Buka
+                  </span>
                 </a>
               </div>
             </div>
