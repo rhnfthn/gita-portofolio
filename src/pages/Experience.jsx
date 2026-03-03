@@ -121,13 +121,13 @@ export default function Achievment() {
     },
     {
       id: 4,
-      title: 'Choir Gereja | 2025',
+      title: 'Paduan Suara Gereja | 2025',
       meta: 'Anggota',
       description:
         'Terlibat dalam kegiatan komunitas berbasis kolaborasi dan pelayanan. Melatih koordinasi tim, konsistensi, serta kemampuan komunikasi untuk mencapai performa yang selaras. Pengalaman ini membentuk karakter kolaboratif dan komitmen terhadap kontribusi berkelanjutan dalam komunitas.',
       photos: [
-        { src: org4Photo1, alt: 'Choir Gereja 2025 - Foto 1' },
-        { src: org4Photo2, alt: 'Choir Gereja 2025 - Foto 2' },
+        { src: org4Photo1, alt: 'Paduan Suara Gereja 2025 - Foto 1' },
+        { src: org4Photo2, alt: 'Paduan Suara Gereja 2025 - Foto 2' },
       ],
     },
   ]
